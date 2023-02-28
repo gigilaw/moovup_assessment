@@ -1,28 +1,24 @@
-import { useEffect, useState } from 'react';
+import useFetch from './useFetch';
+import { useMemo } from 'react';
 
 const Home = () => {
-  const [allFriends, setAllFriends] = useState(null);
+  const headers = useMemo(
+    () => ({
+      authorization: `Bearer ${process.env.REACT_APP_ALL_FRIENDS_TOKEN}`,
+    }),
+    []
+  );
 
-  useEffect(() => {
-    const headers = {
-      Authorization: 'Bearer ' + process.env.REACT_APP_ALL_FRIENDS_TOKEN,
-    };
-
-    fetch(process.env.REACT_APP_ALL_FRIENDS_ENDPOINT, {
-      headers,
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setAllFriends(data);
-      });
-  }, []);
+  const { data, isLoading, error } = useFetch(
+    process.env.REACT_APP_ALL_FRIENDS_ENDPOINT,
+    headers
+  );
 
   return (
     <div className="home">
       <h1>All Friends</h1>
+      {error && <div>{error}</div>}
+      {isLoading && <div>Loading...</div>}
     </div>
   );
 };
