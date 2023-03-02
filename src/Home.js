@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      {error && <div>An Error seems to have occured</div>}
+      {error && <div>An error seems to have occured</div>}
       {isLoading && <div>Loading...</div>}
       {allFriends && <AllFriendsList allFriends={allFriends} />}
     </div>
