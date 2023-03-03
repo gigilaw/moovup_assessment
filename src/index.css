@@ -2,16 +2,22 @@
 
 /* base styles */
 * {
-  margin: 0;
   font-family: 'Quicksand';
   color: #333;
 }
 .content {
   max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+  margin: 10px auto;
+  padding: 10px;
 }
 
+a {
+  text-decoration: none;
+}
+
+.friends-list {
+  margin: 40px auto
+}
 .friends-preview {
   padding: 10px 16px;
   margin: 20px 0;
@@ -23,16 +29,6 @@
 .friends-preview h2 {
   font-size: 20px;
   color: #f1356d;
-  margin-bottom: 8px;
-}
-.friends-preview img{
-  width: 100px;
-  /* height: 200px; */
-  display: inline-block;
-}
-
-.friends-text{
-  display: inline-block;
 }
 
 .map-container {
