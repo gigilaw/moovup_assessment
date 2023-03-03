@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const AllFriendsList = ({ allFriends }) => {
   return (
     <div className="friends-list">
-      <h1>All Friends!</h1>
+      <h1>My Bear-ly Friends!</h1>
 
       {allFriends.map((friend) => (
         <div key={friend._id}>
