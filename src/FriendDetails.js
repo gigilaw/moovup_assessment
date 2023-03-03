@@ -1,16 +1,30 @@
 import { useLocation } from 'react-router-dom';
 import Map from './Map';
 import { useLoadScript } from '@react-google-maps/api';
+import { useEffect, useState } from 'react';
 
 const FriendDetails = () => {
   const propsLocation = useLocation();
-  const { friend } = propsLocation.state;
-
-  // remove
-  console.log(friend);
+  const [friend, setFriend] = useState(null);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
   });
+
+  // Extra checking due to limiations of json
+  useEffect(() => {
+    if (propsLocation.state) {
+      const { friend } = propsLocation.state;
+      setFriend(friend);
+    }
+  }, [propsLocation.state]);
+
+  // remove
+  console.log(friend);
+
+  // Early return if friend data is not populated
+  if (!friend) {
+    return <h2>Friend Not Found</h2>;
+  }
 
   const locationDisplay = () => {
     try {
