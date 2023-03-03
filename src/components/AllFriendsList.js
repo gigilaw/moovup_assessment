@@ -1,13 +1,27 @@
 import { Link } from 'react-router-dom';
-import { Avatar, Grid } from '@mui/material';
+import { Avatar, Grid, Pagination } from '@mui/material';
+import { useState } from 'react';
 
 const AllFriendsList = ({ allFriends }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 5;
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentFriends = allFriends.slice(firstPostIndex, lastPostIndex);
+
+  const friendsCount = Math.ceil(allFriends.length / postsPerPage);
+
+  const handlePagination = (_, currentPage) => {
+    setCurrentPage(currentPage);
+  };
+
   return (
     <div>
       <h1>My Bear-ly Friends!</h1>
       <div className="friends-list">
-        {allFriends.map((friend) => (
-          <Grid container>
+        {currentFriends.map((friend) => (
+          <Grid container key={friend._id}>
             <Grid item xs={12} className="friends-preview">
               <Link to={`/friends/${friend._id}`} state={{ friend }}>
                 <Grid container>
@@ -32,6 +46,7 @@ const AllFriendsList = ({ allFriends }) => {
           </Grid>
         ))}
       </div>
+      <Pagination count={friendsCount} onChange={handlePagination} />
     </div>
   );
 };
