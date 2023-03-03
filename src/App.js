@@ -1,8 +1,8 @@
-import Home from './Home';
-import Navbar from './Navbar';
-import FriendDetails from './FriendDetails';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import FriendDetails from './components/FriendDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import RouteNotFound from './RouteNotFound';
+import RouteNotFound from './components/RouteNotFound';
 
 function App() {
   return (

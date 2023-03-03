@@ -1,4 +1,4 @@
-import useFetch from './useFetch';
+import useFetch from '../hooks/useFetch';
 import { useMemo } from 'react';
 import AllFriendsList from './AllFriendsList';
 
