@@ -6,7 +6,7 @@
   color: #333;
 }
 .content {
-  max-width: 600px;
+  max-width: 800px;
   margin: 10px auto;
   padding: 10px;
 }
@@ -40,7 +40,6 @@ a {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
@@ -50,11 +49,8 @@ a {
 .navbar .links {
   margin-left: auto;
 }
-.navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
-}
-.navbar a:hover {
-  color: #f1356d;
+
+.search-bar{
+  justify-content: flex-end;
+  display: inline-flex;
 }
