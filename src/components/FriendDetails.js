@@ -1,7 +1,8 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import Map from './Map';
 import { useLoadScript } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
+import { Grid, Button } from '@mui/material';
 
 const FriendDetails = () => {
   const propsLocation = useLocation();
@@ -34,26 +35,44 @@ const FriendDetails = () => {
     } catch (err) {
       console.warn(err.message);
       // replace with error display
-      return 'error';
+      return (
+        <img
+          src="/locationError.png"
+          alt="location error"
+          className="map-container"
+        />
+      );
     }
     return isLoaded ? <Map locationParams={friend.location} /> : 'Loading...';
   };
 
   return (
-    <div className="friend-details">
-      <article>
-        <img
-          src={friend.picture}
-          alt={`${friend.name.first} ${friend.name.last}`}
-        ></img>
-        <h2>
-          {friend.name.first} {friend.name.last}
-        </h2>
-        <div>
-          <p>email: {friend.email}</p>
-        </div>
-      </article>
-      <div>{locationDisplay()}</div>
+    <div>
+      <Grid container spacing={5}>
+        <Grid item xs={12} sm={3}>
+          <img
+            src={friend.picture}
+            alt={`${friend.name.first} ${friend.name.last}`}
+            className="friend-profile"
+          ></img>
+        </Grid>
+        <Grid item xs={12} sm={9}>
+          <h2>
+            {friend.name.first} {friend.name.last}
+          </h2>
+          <div>
+            <p>email: {friend.email}</p>
+          </div>
+        </Grid>
+      </Grid>
+      <Grid item xs={12} sm={9}>
+        <div className="map-div">{locationDisplay()}</div>
+        <Link to={'/'}>
+          <Button variant="outlined" color="customPink">
+            Back
+          </Button>
+        </Link>
+      </Grid>
     </div>
   );
 };
