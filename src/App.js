@@ -3,21 +3,32 @@ import Navbar from './components/Navbar';
 import FriendDetails from './components/FriendDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RouteNotFound from './components/RouteNotFound';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    customPink: {
+      main: '#ff2257',
+    },
+  },
+});
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/friends/:id" element={<FriendDetails />} />
-            <Route path="*" element={<RouteNotFound />} />
-          </Routes>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/friends/:id" element={<FriendDetails />} />
+              <Route path="*" element={<RouteNotFound />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -16,8 +16,6 @@ const useFetch = (url, headers) => {
         }
 
         const data = await res.json();
-        //To be removed
-        console.log(data);
         setData(data);
         setIsLoading(false);
         setError(null);

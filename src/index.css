@@ -2,16 +2,22 @@
 
 /* base styles */
 * {
-  margin: 0;
   font-family: 'Quicksand';
   color: #333;
 }
 .content {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 10px;
 }
 
+a {
+  text-decoration: none;
+}
+
+.friends-list {
+  margin: 40px auto
+}
 .friends-preview {
   padding: 10px 16px;
   margin: 20px 0;
@@ -22,43 +28,39 @@
 }
 .friends-preview h2 {
   font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 8px;
-}
-.friends-preview img{
-  width: 100px;
-  /* height: 200px; */
-  display: inline-block;
+  color: #ff2257;
 }
 
-.friends-text{
-  display: inline-block;
+.map-div {
+  margin: 20px auto
 }
-
 .map-container {
-  width: 100%;
-  height: 60vh;
+  width: 70%;
+  height: 40vh;
+}
+
+.friend-profile {
+  float: left;
+  width:  150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .navbar {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
 .navbar h1 {
-  color: #f1356d;
+  color: #ff2257;
 }
 .navbar .links {
   margin-left: auto;
 }
-.navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
-}
-.navbar a:hover {
-  color: #f1356d;
+
+.search-bar{
+  justify-content: flex-end;
+  display: inline-flex;
 }
