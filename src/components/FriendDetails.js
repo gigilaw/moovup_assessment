@@ -1,4 +1,4 @@
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Map from './Map';
 import { useLoadScript } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
@@ -10,6 +10,7 @@ const FriendDetails = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
   });
+  const navigate = useNavigate();
 
   // Extra checking due to limiations of json
   useEffect(() => {
@@ -18,9 +19,6 @@ const FriendDetails = () => {
       setFriend(friend);
     }
   }, [propsLocation.state]);
-
-  // remove
-  console.log(friend);
 
   // Early return if friend data is not populated
   if (!friend) {
@@ -46,6 +44,10 @@ const FriendDetails = () => {
     return isLoaded ? <Map locationParams={friend.location} /> : 'Loading...';
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div>
       <Grid container spacing={5}>
@@ -67,11 +69,11 @@ const FriendDetails = () => {
       </Grid>
       <Grid item xs={12} sm={9}>
         <div className="map-div">{locationDisplay()}</div>
-        <Link to={'/'}>
-          <Button variant="outlined" color="customPink">
-            Back
-          </Button>
-        </Link>
+        {/* <Link to={'/'}> */}
+        <Button variant="outlined" color="customPink" onClick={handleBack}>
+          Back
+        </Button>
+        {/* </Link> */}
       </Grid>
     </div>
   );
