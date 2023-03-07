@@ -1,0 +1,28 @@
+[
+    {
+        "_id": "1",
+        "name": {
+            "last": "Alpha",
+            "first": "Jane"
+        },
+        "email": "ja@email.com",
+        "picture": "https://placebear.com/225/210",
+        "location": {
+            "latitude": 22.38,
+            "longitude": null
+        }
+    },
+    {
+        "_id": "2",
+        "name": {
+            "last": "Beta",
+            "first": "Jon"
+        },
+        "email": "jb@email.com",
+        "picture": "https://placebear.com/60/121",
+        "location": {
+            "latitude": 22.37,
+            "longitude": 113.34
+        }
+    }
+]

@@ -32,7 +32,6 @@ const FriendDetails = () => {
       }
     } catch (err) {
       console.warn(err.message);
-      // replace with error display
       return (
         <img
           src="/locationError.png"
@@ -69,11 +68,9 @@ const FriendDetails = () => {
       </Grid>
       <Grid item xs={12} sm={9}>
         <div className="map-div">{locationDisplay()}</div>
-        {/* <Link to={'/'}> */}
-        <Button variant="outlined" color="customPink" onClick={handleBack}>
+        <Button variant="outlined" onClick={handleBack}>
           Back
         </Button>
-        {/* </Link> */}
       </Grid>
     </div>
   );
