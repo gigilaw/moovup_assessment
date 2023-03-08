@@ -1,23 +1,38 @@
 # moovup Assessment - Question 2
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+`Node v18.13`
 
-### `npm start`
+## Scripts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In the project directory, first run:
 
-### `npm test`
+```
+npm install
+```
 
-Launches the test runner in the interactive watch mode.
+Development Mode - Open [http://localhost:3000](http://localhost:3000) to view it in your browser:
 
-### `npm run build`
+```
+npm start
+```
 
-Builds the app for production to the `build` folder.
+Test Mode:
+
+```
+npm test
+```
+
+Production Mode :
+
+```
+npm run build
+serve -s build
+```
 
 ## Assumptions Made
 
-1. Provided api only has `GET` method for full data set and not by id. Thus `FriendsDetails` page info is passed by `props`
-2.
+1. Provided api only has `GET` method to full data set and not by id. Thus `FriendsDetails` page info is passed by `props`
+2. Pagination done as `array slice` compared to `query params`
+3. `null` in location handled as displaying error image. Usually would assume backend would not allow for `null` in location
